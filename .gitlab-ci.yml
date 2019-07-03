@@ -1,3 +1,6 @@
+before_script:
+  - pip install tox
+
 lint:
   image: python:3.7
   script: tox -e lint
