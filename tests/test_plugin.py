@@ -1,0 +1,31 @@
+import pytest_pikachu.plugin
+
+
+def test_ascii_art_shown_on_successful_test_run(testdir):
+    """Should show surprise if plugin enabled and test passes."""
+    testdir.makepyfile("def test_passes():\n\tassert True")
+
+    result = testdir.runpytest("--pikachu")
+    result.assert_outcomes(passed=1)
+
+    assert pytest_pikachu.plugin.ascii_art in result.stdout.str()
+
+
+def test_ascii_art_not_shown_on_unless_enabled(testdir):
+    """Should not show surprise if plugin is not enabled."""
+    testdir.makepyfile("""def test_passes():\n\tassert 1 + 1 == 2""")
+
+    result = testdir.runpytest()
+    result.assert_outcomes(passed=1)
+
+    assert pytest_pikachu.plugin.ascii_art not in result.stdout.str()
+
+
+def test_ascii_art_not_shown_on_unsuccessful_test_run(testdir):
+    """Should not show surprise if plugin enabled and test fails."""
+    testdir.makepyfile("""def test_fails():\n\tassert 1 + 1 == 3""")
+
+    result = testdir.runpytest("--pikachu")
+    result.assert_outcomes(failed=1)
+
+    assert pytest_pikachu.plugin.ascii_art not in result.stdout.str()
