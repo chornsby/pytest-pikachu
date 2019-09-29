@@ -29,3 +29,12 @@ def test_ascii_art_not_shown_on_unsuccessful_test_run(testdir):
     result.assert_outcomes(failed=1)
 
     assert pytest_pikachu.plugin.ascii_art not in result.stdout.str()
+
+
+def test_ascii_art_not_shown_on_call_to_help(testdir):
+    """Should not show surprise when the user tries to display the manual."""
+    testdir.makepyfile("def test_passes():\n\tassert 1 + 1 == 2")
+
+    result = testdir.runpytest("--pikachu", "--help")
+
+    assert pytest_pikachu.plugin.ascii_art not in result.stdout.str()

@@ -30,6 +30,10 @@ def pytest_unconfigure(config):
     if not config.option.pikachu:
         return
 
+    # Print nothing if the pytest_sessionfinish hook was not called
+    if not hasattr(config, "exitstatus"):
+        return
+
     # Print nothing if the tests failed
     if getattr(config, "exitstatus") != 0:
         return
