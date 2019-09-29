@@ -1,4 +1,5 @@
 import pytest_pikachu.plugin
+from pytest import ExitCode
 
 
 def test_ascii_art_shown_on_successful_test_run(testdir):
@@ -8,6 +9,7 @@ def test_ascii_art_shown_on_successful_test_run(testdir):
     result = testdir.runpytest("--pikachu")
     result.assert_outcomes(passed=1)
 
+    assert result.ret == ExitCode.OK
     assert pytest_pikachu.plugin.ascii_art in result.stdout.str()
 
 
@@ -18,6 +20,7 @@ def test_ascii_art_not_shown_on_unless_enabled(testdir):
     result = testdir.runpytest()
     result.assert_outcomes(passed=1)
 
+    assert result.ret == ExitCode.OK
     assert pytest_pikachu.plugin.ascii_art not in result.stdout.str()
 
 
@@ -28,6 +31,7 @@ def test_ascii_art_not_shown_on_unsuccessful_test_run(testdir):
     result = testdir.runpytest("--pikachu")
     result.assert_outcomes(failed=1)
 
+    assert result.ret == ExitCode.TESTS_FAILED
     assert pytest_pikachu.plugin.ascii_art not in result.stdout.str()
 
 
@@ -37,4 +41,5 @@ def test_ascii_art_not_shown_on_call_to_help(testdir):
 
     result = testdir.runpytest("--pikachu", "--help")
 
+    assert result.ret == ExitCode.OK
     assert pytest_pikachu.plugin.ascii_art not in result.stdout.str()
