@@ -34,9 +34,8 @@ def pytest_unconfigure(config):
     if getattr(config, "exitstatus") != 0:
         return
 
-    # TODO: Check if we can print this in color
-    # TODO: Should we use some pytest logging method rather than print?
-    print(ascii_art)
+    tw = config.get_terminal_writer()
+    tw.write(ascii_art, green=True)
 
 
 def pytest_addoption(parser):
