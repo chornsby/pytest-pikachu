@@ -13,11 +13,11 @@ $ pytest --pikachu
 platform linux -- Python 3.7.1, pytest-5.1.3, py-1.8.0, pluggy-0.13.0
 rootdir: /home/.../pytest-pikachu, inifile: tox.ini, testpaths: tests
 plugins: pikachu-0.1.0
-collected 3 items
+collected 4 items
 
-tests/test_plugin.py ...                                                 [100%]
+tests/test_plugin.py ....                                                [100%]
 
-============================== 3 passed in 0.19s ===============================
+============================== 4 passed in 0.25s ===============================
 
 ⢀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⣠⣤⣶⣶
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⢰⣿⣿⣿⣿
