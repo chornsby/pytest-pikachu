@@ -18,7 +18,7 @@ def test_ascii_art_shown_on_successful_test_run(testdir):
 
 def test_ascii_art_not_shown_on_unless_enabled(testdir):
     """Should not show surprise if plugin is not enabled."""
-    testdir.makepyfile("""def test_passes():\n\tassert 1 + 1 == 2""")
+    testdir.makepyfile("def test_passes():\n\tassert 1 + 1 == 2")
 
     result = testdir.runpytest()
     result.assert_outcomes(passed=1)
@@ -29,7 +29,7 @@ def test_ascii_art_not_shown_on_unless_enabled(testdir):
 
 def test_ascii_art_not_shown_on_unsuccessful_test_run(testdir):
     """Should not show surprise if plugin enabled and test fails."""
-    testdir.makepyfile("""def test_fails():\n\tassert 1 + 1 == 3""")
+    testdir.makepyfile("def test_fails():\n\tassert 1 + 1 == 3")
 
     result = testdir.runpytest("--pikachu")
     result.assert_outcomes(failed=1)
