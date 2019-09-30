@@ -1,8 +1,19 @@
+import os
+
 from setuptools import find_packages, setup
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+README = os.path.join(BASE_DIR, "README.md")
+
+with open(README) as file:
+    long_description = file.read()
 
 setup(
     name="pytest-pikachu",
     version="0.1.0",
+    description="Show surprise when tests are passing",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     author="Charlie Hornsby",
     author_email="charlie.hornsby@hotmail.co.uk",
     classifiers=[

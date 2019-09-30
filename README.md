@@ -2,6 +2,12 @@
 
 `pytest-pikachu` prints ascii art of [Surprised Pikachu][0] when all tests pass.
 
+## Installation
+
+```
+$ pip install pytest-pikachu
+```
+
 ## Usage
 
 Pass the `--pikachu` option to `pytest` as a command line flag or configuration
