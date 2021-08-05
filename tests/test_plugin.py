@@ -13,7 +13,7 @@ def test_ascii_art_shown_on_successful_test_run(testdir):
     result.assert_outcomes(passed=1)
 
     assert result.ret == EXIT_CODE_OK
-    assert pytest_pikachu.plugin.ascii_art in result.stdout.str()
+    assert pytest_pikachu.plugin.ascii_art.strip() in result.stdout.str()
 
 
 def test_ascii_art_not_shown_on_unless_enabled(testdir):
