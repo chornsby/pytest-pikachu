@@ -10,14 +10,14 @@ with open(README) as file:
 
 setup(
     name="pytest-pikachu",
-    version="0.1.0",
+    version="1.0.0",
     description="Show surprise when tests are passing",
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Charlie Hornsby",
     author_email="charlie.hornsby@hotmail.co.uk",
     classifiers=[
-        "Development Status :: 4 - Beta",
+        "Development Status :: 5 - Production/Stable",
         "Framework :: Pytest",
         "Intended Audience :: Developers",
         "Topic :: Software Development :: Testing",
