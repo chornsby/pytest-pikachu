@@ -35,7 +35,7 @@ setup(
         "License :: OSI Approved :: MIT License",
     ],
     license="MIT",
-    url="https://gitlab.com/chornsby/pytest-pikachu",
+    url="https://github.com/chornsby/pytest-pikachu",
     packages=find_packages("src"),
     package_dir={"": "src"},
     entry_points={"pytest11": ["pikachu = pytest_pikachu.plugin"]},
